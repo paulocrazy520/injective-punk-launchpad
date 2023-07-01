@@ -38,8 +38,21 @@ export default function Navbar() {
       >
         <Box
           sx={{
+            display: { sm: "flex", xs: "none" },
             height: "100%",
-            padding: { sm: "10px 0", xs: "20px 0" },
+            padding: { sm: "16px 0", xs: "20px 0" },
+            img: {
+              height: "100%",
+            },
+          }}
+        >
+          <img alt="" src="./logo.png" />
+        </Box>
+        <Box
+          sx={{
+            display: { sm: "none", xs: "flex" },
+            height: "100%",
+            padding: { sm: "16px 0", xs: "20px 0" },
             img: {
               height: "100%",
             },

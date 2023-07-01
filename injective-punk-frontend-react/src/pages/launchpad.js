@@ -32,6 +32,7 @@ import {
 
 export default function Launchpad() {
   const [dispImageIndex, setDispImageIndex] = useState(1);
+  const [newImageIndex, setNewImageIndex] = useState(1);
   const [loadingView, setLoadingView] = useState(false);
 
   const [mintDlgView, setMintDlgView] = useState(false);
@@ -41,8 +42,12 @@ export default function Launchpad() {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setDispImageIndex(newImageIndex); // Update dispImageIndex with previous newImageIndex
       const randomIndex = Math.floor(Math.random() * NFT_TOTAL_BALANCE) + 1;
-      setDispImageIndex(randomIndex);
+      setNewImageIndex((prev) => {
+        setDispImageIndex(prev);
+        return randomIndex;
+      }); // Update newImageIndex with a new random value
     }, 1000);
 
     return () => clearInterval(interval);
@@ -223,12 +228,14 @@ export default function Launchpad() {
           >
             <Box
               sx={{
+                position: "relative",
                 marginTop: { sm: "0", xs: "20px" },
                 width: "100%",
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
+                justifyContent: "center",
+                // alignItems: "center",
                 img: {
+                  position: "absolute",
                   width: "100%",
                   aspectRatio: "1",
                   border: `2px solid ${BUTTON_COLOR}`,
@@ -240,6 +247,10 @@ export default function Launchpad() {
               <img
                 alt=""
                 src={`https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${dispImageIndex}.png`}
+              />
+              <img
+                alt=""
+                src={`https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${newImageIndex}.png`}
               />
             </Box>
             {/* <Box

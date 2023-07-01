@@ -38,8 +38,8 @@ export const NFT_TOKEN_ID = "";
 export const NFT_TOTAL_BALANCE = 10000;
 
 // Mint Info
-export const MINT_BALANCE_PER_NFT = 4;
-export const MINT_LIMIT_COUNT_PER_WALLET = 20;
+export const MINT_BALANCE_PER_NFT = 2.2;
+export const MINT_LIMIT_COUNT_PER_WALLET = 1000;
 
 // Api Info
 export const SERVER_URL = "https://william520server.com:3306/api/mint";

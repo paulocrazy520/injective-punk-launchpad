@@ -49,7 +49,7 @@ export default function MintOption({ onMintNft, onCancel, mintedCount }) {
       <Box
         sx={{
           margin: { sm: "12px 0", xs: "6px 0" },
-          width: { sm: "94px", xs: "72px" },
+          width: { sm: "110px", xs: "90px" },
           aspectRatio: "1",
           borderRadius: "60px",
           background: INPUT_BORDER_COLOR,
@@ -62,7 +62,7 @@ export default function MintOption({ onMintNft, onCancel, mintedCount }) {
         <Typography
           sx={{
             color: `${BACKGROUND_COLOR} !important`,
-            fontSize: { sm: "24px", xs: "18px" },
+            fontSize: { sm: "18px", xs: "14px" },
             fontWeight: "700",
           }}
         >
@@ -104,7 +104,9 @@ export default function MintOption({ onMintNft, onCancel, mintedCount }) {
         <Typography>
           Mint {mintCount} token{mintCount > 0 && "s"}
         </Typography>
-        <Typography>{mintCount * MINT_BALANCE_PER_NFT} INJ</Typography>
+        <Typography>
+          {parseFloat(mintCount * MINT_BALANCE_PER_NFT).toFixed(2)} INJ
+        </Typography>
       </Box>
       <Box
         sx={{
