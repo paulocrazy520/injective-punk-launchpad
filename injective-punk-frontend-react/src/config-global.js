@@ -11,6 +11,10 @@ export const NAVBAR_LINKS = {
     link: "/preview",
     text: "NFT Preview",
   },
+  nfts: {
+    link: "/nfts",
+    text: "My NFTs",
+  },
 };
 
 export const NAVBAR_LINK_COLOR = "#a0b0c0";

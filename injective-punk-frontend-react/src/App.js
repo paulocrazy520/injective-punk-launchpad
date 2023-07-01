@@ -9,9 +9,10 @@ import { Box } from "@mui/material";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Launchpad from "./pages/launchpad";
 import Navbar from "./layouts/navbar";
+import Launchpad from "./pages/launchpad";
 import Preview from "./pages/preview";
+import Nfts from "./pages/nfts";
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
           <Route
             path={NAVBAR_LINKS.preview.link}
             render={(props) => <Preview {...props} />}
+          />
+          <Route
+            path={NAVBAR_LINKS.nfts.link}
+            render={(props) => <Nfts {...props} />}
           />
           <Redirect from="/" to={NAVBAR_LINKS.launchpad.link} />
         </Switch>

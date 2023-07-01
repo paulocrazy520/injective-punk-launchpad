@@ -75,7 +75,7 @@ export default function Navbar() {
               flexDirection: { sm: "row", xs: "column" },
               alignItems: { sm: "center", xs: "start" },
               justifyContent: "space-between",
-              padding: "24px 0",
+              padding: "16px 0",
               ".link-item": {
                 position: "relative",
                 display: "flex",
@@ -151,6 +151,33 @@ export default function Navbar() {
                 }}
               >
                 {NAVBAR_LINKS.preview.text}
+              </Link>
+            </Box>
+            <Box className="link-item">
+              <Box
+                className="link-selected-badge"
+                sx={{
+                  display:
+                    currentPath.pathname === NAVBAR_LINKS.nfts.link
+                      ? "flex"
+                      : "none",
+                }}
+              />
+              <Link
+                href={NAVBAR_LINKS.nfts.link}
+                underline="none"
+                sx={{
+                  color:
+                    currentPath.pathname === NAVBAR_LINKS.nfts.link
+                      ? NAVBAR_LINK_SELECTED_COLOR
+                      : NAVBAR_LINK_COLOR,
+                  fontWeight:
+                    currentPath.pathname === NAVBAR_LINKS.nfts.link
+                      ? "700"
+                      : "400",
+                }}
+              >
+                {NAVBAR_LINKS.nfts.text}
               </Link>
             </Box>
           </Box>
