@@ -48,7 +48,7 @@ export default function Launchpad() {
         setDispImageIndex(prev);
         return randomIndex;
       }); // Update newImageIndex with a new random value
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -233,25 +233,30 @@ export default function Launchpad() {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-                // alignItems: "center",
-                img: {
+              }}
+            >
+              <Box
+                sx={{
                   position: "absolute",
                   width: "100%",
                   aspectRatio: "1",
                   border: `2px solid ${BUTTON_COLOR}`,
                   borderRadius: "20px",
                   maxWidth: "460px",
-                },
-              }}
-            >
-              <img
-                alt=""
-                src={`https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${dispImageIndex}.png`}
-              />
-              <img
-                alt=""
-                src={`https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${newImageIndex}.png`}
-              />
+                  backgroundImage: `url(https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${dispImageIndex}.png)`,
+                  backgroundSize: "cover",
+                  backgroundColor: "#00a7f3",
+                  overflow: "hidden",
+                  img: {
+                    width: "100%",
+                  },
+                }}
+              >
+                <img
+                  alt=""
+                  src={`https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${newImageIndex}.png`}
+                />
+              </Box>
             </Box>
             {/* <Box
               sx={{

@@ -1,5 +1,6 @@
 import {
   BACKGROUND_COLOR,
+  BUTTON_COLOR,
   DIVIDER_COLOR,
   INPUT_BORDER_COLOR,
   INPUT_TEXT_COLOR,
@@ -135,15 +136,24 @@ export default function Preview() {
               display: "flex",
               flexDirection: "row",
               justifyContent: "center",
-              img: {
-                width: "100%",
-                maxWidth: "420px",
-              },
             }}
           >
-            <Box>
-              <img alt="" src={nftInfo.imageUrl} />
-            </Box>
+            <Box
+              sx={{
+                width: "100%",
+                aspectRatio: "1",
+                border: `2px solid ${BUTTON_COLOR}`,
+                borderRadius: "20px",
+                maxWidth: "460px",
+                backgroundImage: `url(${nftInfo.imageUrl})`,
+                backgroundSize: "cover",
+                backgroundColor: "#00a7f3",
+                overflow: "hidden",
+                img: {
+                  width: "100%",
+                },
+              }}
+            />
           </Grid>
           <Grid
             item
