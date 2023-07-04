@@ -7,6 +7,9 @@ import {
   Dialog,
   Divider,
   Grid,
+  IconButton,
+  LinearProgress,
+  Link,
   Typography,
 } from "@mui/material";
 import { toast } from "react-toastify";
@@ -21,6 +24,7 @@ import {
   NFT_TOKEN_ID,
   NFT_TOTAL_BALANCE,
   TREASURY_ID,
+  TWITTER_URL,
 } from "../config-global";
 
 import MintOption from "../components/mintOption";
@@ -117,7 +121,9 @@ export default function Launchpad() {
     setMintDlgView(true);
   };
 
-  const mintNft = async (mintCount) => {};
+  const mintNft = async (mintCount) => {
+    toast.warning("Coming soon.");
+  };
 
   return (
     <>
@@ -184,11 +190,32 @@ export default function Launchpad() {
             </Box>
             <Box
               sx={{
-                marginTop: { sm: "50px", xs: "20px" },
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <LinearProgress
+                variant="determinate"
+                value={(globalMintedCount * 100) / NFT_TOTAL_BALANCE}
+                sx={{
+                  width: "calc(100% - 120px)",
+                  marginRight: "10px",
+                }}
+              />
+              <Typography>
+                {globalMintedCount} / {NFT_TOTAL_BALANCE}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                marginTop: { sm: "32px", xs: "16px" },
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "left",
+                marginBottom: { sm: "16px", xs: "8px" },
                 ".MuiButton-root": {
                   width: "fit-content",
                   borderRadius: "0",
@@ -214,6 +241,16 @@ export default function Launchpad() {
                 Mint your NFT!
               </Button>
             </Box>
+            <Link href={TWITTER_URL} target="_blank">
+              <IconButton
+                sx={{
+                  width: { sm: "52px", xs: "42px" },
+                  padding: "0",
+                }}
+              >
+                <img alt="" src="./twitter128.png" />
+              </IconButton>
+            </Link>
           </Grid>
           <Grid
             item
@@ -284,6 +321,7 @@ export default function Launchpad() {
       </Container>
       <Dialog
         open={mintDlgView}
+        onClose={() => setMintDlgView(false)}
         sx={{
           ".MuiPaper-root": {
             borderRadius: "0",

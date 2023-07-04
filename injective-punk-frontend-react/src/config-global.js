@@ -43,8 +43,10 @@ export const NFT_TOTAL_BALANCE = 10000;
 
 // Mint Info
 export const MINT_BALANCE_PER_NFT = 2.2;
-export const MINT_LIMIT_COUNT_PER_WALLET = 1000;
+export const MINT_LIMIT_COUNT_PER_WALLET = 40;
 
 // Api Info
 export const SERVER_URL = "https://william520server.com:3306/api/mint";
 export const TREASURY_ID = "0.0.3031208";
+
+export const TWITTER_URL = "https://twitter.com/injectivepunk";
