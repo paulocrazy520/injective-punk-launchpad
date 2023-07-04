@@ -76,7 +76,9 @@ export default function Navbar() {
             },
           }}
         >
-          <img alt="" src="./logo.png" />
+          <Link href="/">
+            <img alt="" src="./logo.png" />
+          </Link>
         </Box>
         <Box
           sx={{
