@@ -82,7 +82,7 @@ export default function Preview() {
           }}
         >
           <Input
-            placeholder="Enter serial no"
+            placeholder="Enter NFT ID"
             sx={{
               width: "180px",
               height: "32px",

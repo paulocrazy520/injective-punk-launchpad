@@ -8,12 +8,42 @@ import {
   WALLETCONNECT_BUTTON_COLOR,
 } from "../config-global";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Button, Container, Link } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
+import { useSigningClient } from "../contexts/cosmwasm";
+
 export default function Navbar() {
   const currentPath = useLocation();
+
+  const {
+    walletAddress,
+    connectWallet,
+    signingClient,
+    disconnect,
+    getBalances,
+  } = useSigningClient();
+
+  useEffect(() => {
+    let account = localStorage.getItem("address");
+    if (account != null) {
+      connectWallet(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!signingClient || walletAddress.length === 0) return;
+    getBalances();
+  }, [walletAddress, signingClient]);
+
+  const handleConnect = () => {
+    if (walletAddress.length === 0) {
+      connectWallet(false);
+    } else {
+      disconnect();
+    }
+  };
 
   return (
     <Box
@@ -185,18 +215,40 @@ export default function Navbar() {
             sx={{
               marginLeft: "10px",
               ".MuiButton-root": {
-                width: { sm: "140px", xs: "110px" },
+                width: { sm: "160px", xs: "120px" },
                 height: { sm: "36px", xs: "32px" },
                 border: `1px solid ${WALLETCONNECT_BUTTON_COLOR}`,
                 borderRadius: "18px",
                 color: WALLETCONNECT_BUTTON_COLOR,
                 textTransform: "none",
-                fontSize: { sm: "16px", xs: "12px" },
-                lineHeight: { sm: "16px", xs: "12px" },
+                fontSize: { sm: "14px", xs: "11px" },
+                lineHeight: { sm: "16px", xs: "11px" },
               },
             }}
           >
-            <Button>Connect Wallet</Button>
+            <Button
+              onClick={handleConnect}
+              sx={{
+                backgroundImage: `url(${
+                  walletAddress
+                    ? "https://cryptologos.cc/logos/injective-inj-logo.svg?v=025"
+                    : "./keplr128.png"
+                })`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "auto 60%",
+                backgroundPosition: { sm: "12px center", xs: "8px center" },
+                paddingLeft: "28px",
+              }}
+            >
+              {walletAddress
+                ? walletAddress.substring(0, 6) +
+                  "..." +
+                  walletAddress.substring(
+                    walletAddress.length - 6,
+                    walletAddress.length
+                  )
+                : "Connect Wallet"}
+            </Button>
           </Box>
         </Box>
       </Container>
