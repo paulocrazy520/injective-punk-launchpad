@@ -44,7 +44,7 @@ export default function Nfts() {
     console.log("*********loading all tokens1:", response, lastToken);
 
     response = await queryHandler(config.cw721_address, {
-      all_tokens: { start_after: "31", limit:30},
+      all_tokens: { start_after: lastToken, limit:30},
     });
     console.log("*********loading all tokens2:", response);
 
