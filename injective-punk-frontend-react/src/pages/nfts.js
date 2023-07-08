@@ -38,13 +38,13 @@ export default function Nfts() {
     console.log("*********loading num tokens info:", response);
 
     response = await queryHandler(config.cw721_address, {
-      tokens: {owner:walletAddress, start_after: "", limit:30},
+      all_tokens: { start_after: "", limit:30},
     });
     let lastToken  = response.tokens[response.tokens.length-1];
     console.log("*********loading all tokens1:", response, lastToken);
 
     response = await queryHandler(config.cw721_address, {
-      tokens: {owner:walletAddress, start_after: lastToken, limit:30},
+      all_tokens: { start_after: "31", limit:30},
     });
     console.log("*********loading all tokens2:", response);
 
