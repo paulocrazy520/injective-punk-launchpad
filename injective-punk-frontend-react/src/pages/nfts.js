@@ -28,30 +28,25 @@ export default function Nfts() {
 
   const loadAllNfts = async () => {
     const queryHandler = signingClient.queryClient.wasm.queryContractSmart;
-    let entrypointMain = {
+
+    let config = await queryHandler(ContractAddress, {
       get_config: {},
-    };
-
-    const responseMain = await queryHandler(ContractAddress, entrypointMain);
-    console.log("*********loading query config:", responseMain);
-
-    const cw721baseAddress = responseMain.cw721_address;
-
-    let r = await queryHandler(cw721baseAddress, {num_tokens:{}});
-    console.log("*********loading num tokens info:", r);  
-
-    let entrypointBase = {
-      all_tokens:{startAfter:"", limit:10000},
-  };
-
-    const responseBase = await queryHandler(cw721baseAddress, entrypointBase);
-    console.log("*********loading all tokens:", responseBase);
-
-    responseBase.tokens.forEach(async element => {
-      let r = await queryHandler(cw721baseAddress, {nft_info:{token_id:element}});
-      console.log("*********loading nft info:", r);  
     });
-    
+    console.log("*********loading query config:", config);
+
+    let response = await queryHandler(config.cw721_address, { num_tokens: {} });
+    console.log("*********loading num tokens info:", response);
+
+    response = await queryHandler(config.cw721_address, {
+      all_tokens: { startAfter: "", limit: 10000 },
+    });
+    console.log("*********loading all tokens:", response);
+
+    response.tokens.forEach(async element => {
+      let r = await queryHandler(config.cw721_address, { nft_info: { token_id: element } });
+      console.log("*********loading nft info:", r);
+    });
+
 
 
   }
