@@ -118,7 +118,8 @@ export default function Launchpad() {
     //   return;
     // }
     // getAccountMintInfo();
-    setMintDlgView(true);
+    // setMintDlgView(true);
+    window.open("https://injective.talis.art/", "_blank");
   };
 
   const mintNft = async (mintCount) => {
@@ -280,8 +281,9 @@ export default function Launchpad() {
                   border: `2px solid ${BUTTON_COLOR}`,
                   borderRadius: "20px",
                   maxWidth: "460px",
-                  backgroundImage: `url(https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${dispImageIndex}.png)`,
+                  backgroundImage: `url(./avatar.gif)`,
                   backgroundSize: "cover",
+                  backgroundPosition: "center",
                   backgroundColor: "#00a7f3",
                   overflow: "hidden",
                   img: {
@@ -289,10 +291,10 @@ export default function Launchpad() {
                   },
                 }}
               >
-                <img
+                {/* <img
                   alt=""
                   src={`https://ipfs.io/ipfs/QmZ9zs8RrLSFtVapDiUXUm13z1ENbSgfuKwG6U5jDQAwHD/${newImageIndex}.png`}
-                />
+                /> */}
               </Box>
             </Box>
             {/* <Box
