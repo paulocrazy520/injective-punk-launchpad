@@ -29,7 +29,7 @@ export const associateCheck = async (accountId, tokenId) => {
 export const getNftInfo = async (tokenId, serialNumber) => {
   try {
     const metadataInfo = await axios.get(
-      `https://ipfs.io/ipfs/QmV4cFhw2AJeS8xc1he3Kia9oNCc3ebjhNpxDA2unDD6WG/${serialNumber}.json`
+      `https://ipfs.io/ipfs/QmfQm4NPMNfzYqD3d6RNF9mAzmXXGDw7Ld98sWmQBvrQWR/${serialNumber}.json`
     );
 
     return {

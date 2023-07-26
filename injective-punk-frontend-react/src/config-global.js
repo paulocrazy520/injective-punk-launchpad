@@ -39,10 +39,10 @@ export const GLOBAL_TEXT_COLOR = "#a0b0c0";
 
 // NFT Info
 export const NFT_TOKEN_ID = "";
-export const NFT_TOTAL_BALANCE = 10000;
+export const NFT_TOTAL_BALANCE = 2500;
 
 // Mint Info
-export const MINT_BALANCE_PER_NFT = 2.2;
+export const MINT_BALANCE_PER_NFT = 1;
 export const MINT_LIMIT_COUNT_PER_WALLET = 40;
 
 // Api Info

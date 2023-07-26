@@ -29,7 +29,7 @@ import Loading from "../components/loading";
 export default function Preview() {
   const [loadingView, setLoadingView] = useState(false);
 
-  const [currentSerialNumber, setCurrentSerialNumber] = useState("");
+  const [currentSerialNumber, setCurrentSerialNumber] = useState("666");
   const [nftInfo, setNftInfo] = useState({});
 
   useEffect(() => {
